@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="ReporteVehiculos" pageWidth="595" pageHeight="842" columnWidth="555"
+              leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+
+    <queryString>
+        <![CDATA[SELECT id_vehiculo, placa, marca, modelo, `año` AS anio, tipo, precio_diario, estado FROM vehiculos]]>
+    </queryString>
+
+    <field name="id_vehiculo" class="java.lang.Integer"/>
+    <field name="placa" class="java.lang.String"/>
+    <field name="marca" class="java.lang.String"/>
+    <field name="modelo" class="java.lang.String"/>
+    <field name="anio" class="java.lang.Integer"/>
+    <field name="tipo" class="java.lang.String"/>
+    <field name="precio_diario" class="java.math.BigDecimal"/>
+    <field name="estado" class="java.lang.String"/>
+
+    <title>
+        <band height="50">
+            <staticText>
+                <reportElement x="0" y="10" width="555" height="30"/>
+                <textElement textAlignment="Center">
+                    <font size="18" isBold="true"/>
+                </textElement>
+                <text><![CDATA[REPORTE DE VEHÍCULOS REGISTRADOS]]></text>
+            </staticText>
+        </band>
+    </title>
+
+    <columnHeader>
+        <band height="25">
+            <staticText><reportElement x="0" y="0" width="35" height="20"/><textElement><font isBold="true"/></textElement><text><![CDATA[ID]]></text></staticText>
+            <staticText><reportElement x="35" y="0" width="75" height="20"/><textElement><font isBold="true"/></textElement><text><![CDATA[Placa]]></text></staticText>
+            <staticText><reportElement x="110" y="0" width="85" height="20"/><textElement><font isBold="true"/></textElement><text><![CDATA[Marca]]></text></staticText>
+            <staticText><reportElement x="195" y="0" width="85" height="20"/><textElement><font isBold="true"/></textElement><text><![CDATA[Modelo]]></text></staticText>
+            <staticText><reportElement x="280" y="0" width="45" height="20"/><textElement><font isBold="true"/></textElement><text><![CDATA[Año]]></text></staticText>
+            <staticText><reportElement x="325" y="0" width="75" height="20"/><textElement><font isBold="true"/></textElement><text><![CDATA[Tipo]]></text></staticText>
+            <staticText><reportElement x="400" y="0" width="70" height="20"/><textElement><font isBold="true"/></textElement><text><![CDATA[Precio]]></text></staticText>
+            <staticText><reportElement x="470" y="0" width="85" height="20"/><textElement><font isBold="true"/></textElement><text><![CDATA[Estado]]></text></staticText>
+        </band>
+    </columnHeader>
+
+    <detail>
+        <band height="22">
+            <textField><reportElement x="0" y="0" width="35" height="20"/><textFieldExpression><![CDATA[$F{id_vehiculo}]]></textFieldExpression></textField>
+            <textField><reportElement x="35" y="0" width="75" height="20"/><textFieldExpression><![CDATA[$F{placa}]]></textFieldExpression></textField>
+            <textField><reportElement x="110" y="0" width="85" height="20"/><textFieldExpression><![CDATA[$F{marca}]]></textFieldExpression></textField>
+            <textField><reportElement x="195" y="0" width="85" height="20"/><textFieldExpression><![CDATA[$F{modelo}]]></textFieldExpression></textField>
+            <textField><reportElement x="280" y="0" width="45" height="20"/><textFieldExpression><![CDATA[$F{anio}]]></textFieldExpression></textField>
+            <textField><reportElement x="325" y="0" width="75" height="20"/><textFieldExpression><![CDATA[$F{tipo}]]></textFieldExpression></textField>
+            <textField><reportElement x="400" y="0" width="70" height="20"/><textFieldExpression><![CDATA["S/ " + $F{precio_diario}]]></textFieldExpression></textField>
+            <textField><reportElement x="470" y="0" width="85" height="20"/><textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression></textField>
+        </band>
+    </detail>
+</jasperReport>
